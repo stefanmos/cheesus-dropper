@@ -1,0 +1,116 @@
+// Refactor of Kris Olszewski pen https://codepen.io/KrisOlszewski/full/wBQBNX
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:500');
+
+*, *:before, *:after { box-sizing: border-box; }
+
+body {
+  padding: 50px 0;
+  font-family: "Raleway", "Arial", sans-serif;
+	font-weight: 500;
+  text-rendering: optimizeSpeed; // Have a look at text rendering
+  -webkit-font-smoothing: antialiased; // Have a look at font smoothing
+  text-align: center;
+}
+
+.dropdown {
+  display: inline-block;
+	position: relative;
+  text-align: left;
+}
+
+.dropdown-list {
+  background: #fff;
+	border: 1px solid #E1E1E1;
+	border-radius: 3px;
+	list-style: none;
+  margin-top: 5px;
+  padding: 0;
+  position: absolute;
+  opacity: 0;
+  right: 0; // Change to left for to move list positioning to left
+	top: 125%;
+	transition: opacity .25s linear, top .25s linear;
+  visibility: hidden;
+	// width: 100%;
+	a { text-decoration: none; }
+  .dropdown.is-open & {
+    opacity: 1;
+    top: 100%;
+		visibility: visible;
+  }
+}
+
+.dropdown-item {
+	color: #434A54;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 20px;
+  padding: 6px 12px;
+	overflow: hidden;
+  transition: background-color .25s linear;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  &:hover {
+    background-color: #E6E9ED;
+  }
+}
+
+.btn {
+	border: 0;
+	display: inline-block;
+  font: inherit;
+  margin: 0;
+	overflow: visible;
+	text-align: center;
+  text-decoration: none;
+	text-transform: none;
+	user-select: none;
+	-webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+	vertical-align: middle;
+	-webkit-appearance: none;
+  &:hover, &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+  &:not(:disabled) { cursor: pointer; }
+}
+
+.btn--dropdown {
+  background-color: gold;
+	border-radius: 3px;
+  color: black;
+  font-size: 14px;
+  line-height: 20px;
+  min-height: 32px;
+	padding: 6px 34px 6px 12px;
+  transition: background-color .2s linear;
+  &:hover { background-color: gold; }
+  &:after {
+		border: 5px solid transparent;
+    border-top-color: black;
+    content: "";
+    position: absolute;
+    right: 11px;
+		top: 14px;
+  }
+}
+
+.btn--dropdown-inline {
+	font-size: 14px;
+	padding: 0 15px;
+  &:hover {
+    color: gold;
+		&:after { border-top-color: gold; }
+  }
+  &:after {
+		border: 5px solid transparent;
+    border-top-color: black;
+    content: "";
+    position: absolute;
+		right: 0;
+    top: 8px;
+  }
+}
